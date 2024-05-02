@@ -1,10 +1,20 @@
 server {
-    listen 8080;
-    listen 8080;
-    location / {
-      root /usr/share/nginx/html/;
-      log error.txt;
-      include /etc/nginx/mime.types;
-      try_files $uri $uri/ /index.html;
-    }
+  server_name hien;
+  listen 8081;
+  listen 8081;
+  location / {
+    root /usr/share/nginx/html/;
+    log error.txt;
+    include /etc/nginx/mime.types;
+    try_files $uri $uri/ /index.html;
   }
+
+  # DO NOT ADD SECRETS TO THIS FILE. This is a good place for defaults.
+  # If you want to add secrets use `.env.production.local` instead.
+  # Use REACT_APP_ prefix to public env variable to browser
+
+  REACT_APP_NAME="reactjs-template-production"
+  # REACT_APP_API=http://172.16.0.36:8000/api/v1
+  REACT_APP_API=http://localhost:8000/api/v1
+
+}
