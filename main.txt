@@ -1,8 +1,9 @@
 server {
     listen 80;
-    listen 80;
+  
     location / {
       root /usr/share/nginx/html/;
+      log error.txt;
       include /etc/nginx/mime.types;
       try_files $uri $uri/ /index.html;
     }
